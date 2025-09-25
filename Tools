@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Ferramentas - SecureNetExpert</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Minhas Ferramentas 🛠️</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="tools.html">Ferramentas</a>
+      <a href="labs.html">Labs</a>
+      <a href="blog.html">Blog</a>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+      <h2>Password Checker</h2>
+      <p>Script em Python para verificar senhas fracas. <a href="https://github.com/securenetexpert/password-checker" target="_blank">Ver no GitHub</a></p>
+    </article>
+
+    <article>
+      <h2>DomainSPY</h2>
+      <p>Ferramenta de enumeração de domínios. <a href="https://github.com/securenetexpert/domainspy" target="_blank">Ver no GitHub</a></p>
+    </article>
+  </main>
+
+  <footer>
+    <p>© 2025 - SecureNetExpert</p>
+  </footer>
+</body>
+</html>
