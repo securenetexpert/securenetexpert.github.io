@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SecureNetExpert | Portfólio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: #0a0a0a;
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+    a { color: #ff3333; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .navbar {
+      background-color: #111;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #8b0000;
+    }
+    .navbar a { margin: 0 10px; font-weight: bold; }
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(180deg, #111, #0a0a0a);
+    }
+    .hero h1 { font-size: 2.8rem; color: #ff3333; }
+    .hero p { font-size: 1.2rem; margin: 1rem 0; }
+    .btn-primary {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background-color: #8b0000;
+      color: #fff;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+    .btn-primary:hover { background-color: #b22222; }
+    section {
+      padding: 3rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      border-left: 6px solid #ff3333;
+      padding-left: 10px;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: #111;
+      padding: 1.2rem;
+      border-radius: 8px;
+      border: 1px solid #222;
+      transition: transform 0.3s, border 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      border: 1px solid #8b0000;
+    }
+    .card h3 { color: #ff3333; margin-bottom: 0.5rem; }
+    footer {
+      text-align: center;
+      background: #111;
+      padding: 1rem;
+      margin-top: 2rem;
+      border-top: 2px solid #8b0000;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: #111;
+      padding: 2rem;
+      max-width: 800px;
+      max-height: 80vh;
+      overflow-y: auto;
+      border: 1px solid #8b0000;
+      border-radius: 10px;
+    }
+    .close-btn {
+      float: right;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #ff3333;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div><strong>SecureNetExpert</strong></div>
+    <div>
+      <a href="#ctfs">CTFs</a>
+      <a href="#tools">Ferramentas</a>
+      <a href="#projects">Projetos</a>
+      <a href="#contact">Contato</a>
+    </div>
+  </nav>
+  <section class="hero">
+    <h1>Bem-vindo ao meu Portfólio</h1>
+    <p>Compartilhando minha jornada em Segurança da Informação, CTFs e desenvolvimento de ferramentas.</p>
+    <a href="#ctfs" class="btn-primary">Explorar Writeups</a>
+  </section>
+  <section id="ctfs">
+    <h2>Writeups / CTFs</h2>
+    <div class="card-grid">
+      <div class="card" data-content="<h3>Máquina Orion</h3><p>Detalhes do ataque SMB, enumeração e privilégio.</p>">
+        <h3>Orion</h3>
+        <p>SMB, enumeração, pivoting.</p>
+      </div>
+      <div class="card" data-content="<h3>Máquina BusinessCorp</h3><p>Escalada de privilégios e exploração RDP.</p>">
+        <h3>BusinessCorp</h3>
+        <p>Escalada de privilégios, RDP exploit.</p>
+      </div>
+    </div>
+  </section>
+  <section id="tools">
+    <h2>Ferramentas</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Password Checker</h3>
+        <p>Script em Python para análise de força de senhas.</p>
+      </div>
+      <div class="card">
+        <h3>URL Checker</h3>
+        <p>Ferramenta CLI para detectar links suspeitos.</p>
+      </div>
+    </div>
+  </section>
+  <section id="projects">
+    <h2>Projetos</h2>
+    <ul>
+      <li><a href="https://github.com/seu-usuario/password-checker">Password Checker</a></li>
+      <li><a href="https://github.com/seu-usuario/url-checker">URL Checker</a></li>
+    </ul>
+  </section>
+  <section id="contact">
+    <h2>Contato</h2>
+    <p>📧 Email: seuemail@exemplo.com</p>
+    <p>💼 LinkedIn: <a href="https://linkedin.com/in/seu-usuario" target="_blank">linkedin.com/in/seu-usuario</a></p>
+  </section>
+  <footer>
+    <p>© 2025 SecureNetExpert | Portfólio</p>
+  </footer>
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+  <script>
+    const cards = document.querySelectorAll(".card[data-content]");
+    const modal = document.getElementById("modal");
+    const modalBody = document.getElementById("modal-body");
+    const closeBtn = document.querySelector(".close-btn");
+    cards.forEach(card => {
+      card.addEventListener("click", () => {
+        modalBody.innerHTML = card.dataset.content;
+        modal.style.display = "flex";
+      });
+    });
+    closeBtn.onclick = () => modal.style.display = "none";
+    window.onclick = e => { if (e.target == modal) modal.style.display = "none"; }
+  </script>
+</body>
+</html>
